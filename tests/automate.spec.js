@@ -22,7 +22,7 @@ test('Login success', async ({ page }) => {
   });
 
   await test.step('Login website', async () => {
-    await pagePO.login(loginUser.username, loginUser.password);
+    await pagePO.login(loginUser);
   });
 
   await test.step('Check on secure page', async () => {
@@ -43,5 +43,55 @@ test('Login success', async ({ page }) => {
 
   await test.step(`Check '${verifyObj.msg2}' visible`, async () => {
     await expect(pagePO.lblFlashMsg).toContainText(verifyObj.msg2);
+  });
+});
+
+test('Login failed - Password incorrect', async ({ page }) => {
+  var pagePO = new LoginPageObject(page);
+  var securePO = new SecurePageObject(page);
+  var loginUser = test_data.userFailPasswordIncorrect;
+  var verifyObj = {
+    msg1: 'Your password is invalid!'
+  }
+
+  await test.step('Visit website', async () => {
+    await pagePO.goto();
+  });
+
+  await test.step('Check on login page', async () => {
+    await pagePO.expectOnLoginPage();
+  });
+
+  await test.step('Login website', async () => {
+    await pagePO.login(loginUser);
+  });
+
+  await test.step(`Fail message ${verifyObj.msg1} is show`, async () => {
+    await expect(pagePO.lblFlashMsg).toContainText(verifyObj.msg1);
+  });
+});
+
+test('Login failed - Username not found', async ({ page }) => {
+  var pagePO = new LoginPageObject(page);
+  var securePO = new SecurePageObject(page);
+  var loginUser = test_data.userFailUsernameInvalid;
+  var verifyObj = {
+    msg1: 'Your username is invalid!'
+  }
+
+  await test.step('Visit website', async () => {
+    await pagePO.goto();
+  });
+
+  await test.step('Check on login page', async () => {
+    await pagePO.expectOnLoginPage();
+  });
+
+  await test.step('Login website', async () => {
+    await pagePO.login(loginUser);
+  });
+
+  await test.step(`Fail message ${verifyObj.msg1} is show`, async () => {
+    await expect(pagePO.lblFlashMsg).toContainText(verifyObj.msg1);
   });
 });

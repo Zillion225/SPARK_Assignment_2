@@ -3,6 +3,14 @@
         "user1": {
             "username": "tomsmith",
             "password": "SuperSecretPassword!"
+        },
+        "userFailPasswordIncorrect": {
+            "username": "tomsmith",
+            "password": "Password!"
+        },
+        "userFailUsernameInvalid": {
+            "username": "tomholland",
+            "password": "Password!"
         }
     }
 }
