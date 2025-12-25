@@ -1,8 +1,10 @@
 {
-  "name": "automate_2",
+  "name": "spark_automate_2",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "npx playwright test"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
