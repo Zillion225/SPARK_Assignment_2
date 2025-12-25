@@ -109,6 +109,19 @@ If tests time out, check selectors in `resources/locators/` and ensure the test 
 
 ---
 
+## Environment variables
+
+This project requires a **REQRES_API_KEY** for requests to the ReqRes test API. Provide it in a `.env` file at the repository root with the following format:
+
+```env
+REQRES_API_KEY=your_reqres_api_key_here
+```
+
+- Do **not** commit real secrets to the repository. Add `.env` to your `.gitignore` if it is not already ignored.
+- If you don't have an API key, request one from the service owner or use a test/stub value for local runs.
+
+---
+
 ## License
 
 This project is provided under the **ISC** license. Update `package.json` and this file with your preferred license and author metadata.
