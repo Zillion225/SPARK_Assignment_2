@@ -1,5 +1,7 @@
 // @ts-check
 import { defineConfig, devices } from '@playwright/test';
+const path = require('path');
+const fs = require('fs');
 
 /**
  * Read environment variables from file.
